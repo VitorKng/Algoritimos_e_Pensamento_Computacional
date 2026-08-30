@@ -1,0 +1,2 @@
+# Algoritimos_e_Pensamento_Computacional
+Desenvolvendo atividades usando linguagem C
