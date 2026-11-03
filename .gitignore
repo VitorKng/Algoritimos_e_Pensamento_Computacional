@@ -1,0 +1,13 @@
+# Executáveis e arquivos de compilação C/C++
+*.exe
+*.o
+*.out
+*.app
+
+# Configurações do VS Code e IDEs
+.vscode/
+.idea/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
