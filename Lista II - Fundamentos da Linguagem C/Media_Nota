@@ -1,0 +1,25 @@
+2º
+#include <stdio.h>
+
+int main()
+{
+  float media, faltas, carga_horaria;
+
+  printf("Digite a media do aluno: ");
+  scanf("%f", &media);
+
+  printf("Digite a quantidade de horas de faltas: ");
+  scanf("%f", &faltas);
+
+  printf("Digite a carga horaria do curso: ");
+  scanf("%f", &carga_horaria);
+
+  if (media >=7.0 && faltas <=(carga_horaria * 0.15))
+{   
+    printf("Resultado: Aprovado!");
+
+    }else {
+      printf("Resultado: Reprovado!");
+    }
+  return 0;
+}
