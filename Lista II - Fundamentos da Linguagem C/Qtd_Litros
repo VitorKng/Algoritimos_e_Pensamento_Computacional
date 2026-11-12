@@ -1,0 +1,19 @@
+4º
+#include <stdio.h>
+
+int main() {
+  float area, litros, preço;
+  int latas;
+   
+  printf("Digite a área em m²: ");
+  scanf("%f", &area);
+   
+  litros = area / 3.0;
+  latas = litros / 18.0;
+  preço = latas * 80.00;
+   
+  printf("Latas necessárias: %d\n", latas);
+  printf("Preço total: R$ %.2f\n", preço);
+
+  return 0;
+}
