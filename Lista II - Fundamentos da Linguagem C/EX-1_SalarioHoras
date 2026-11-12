@@ -1,0 +1,13 @@
+1º
+#include <stdio.h>
+
+int main() {
+  float horas;
+
+  printf("Digite quantas horas: ");
+  scanf("%f", &horas);
+
+  printf("Salário a receber: R$ %.2f\n" , horas * 10.25);
+
+  return 0;
+}
