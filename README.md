@@ -36,4 +36,4 @@ O objetivo principal é documentar o aprendizado estruturado, demonstrando a cap
 ---
 
 ### 🧑‍💼 **Linkedin:** 
-www.linkedin.com/in/vitor-oliveira-2318303b5
+[www.linkedin.com/in/vitor-oliveira-2318303b5](https://www.linkedin.com/in/vitor-oliveira-alvess-2318303b5)
