@@ -1,0 +1,46 @@
+3º
+#include <stdio.h>
+
+int main() {
+  char nome[100], endereço[150], sexo, cidade[50], estado[3];
+  int idade;
+  float bruto, liquido;
+{   
+  printf("Nome: ");
+  scanf(" %[^\n]", nome);
+}
+{
+  printf("Endereço: ");
+  scanf(" %[^\n]", endereço);
+}
+{
+  printf("Sexo: ");
+  scanf(" %c", &sexo);
+}
+{
+  printf("Cidade: ");
+  scanf(" %[^\n]", cidade);
+}
+{
+  printf("Estado (UF): ");
+  scanf(" %[^\n]", estado);
+}
+{
+  printf("Idade: ");
+  scanf("%d", &idade);
+} 
+{
+  printf("Salário bruto: ");
+  scanf("%f", &bruto);
+
+  liquido = bruto * (1.0 - 0.17);
+  
+  printf("\n--- Dados do funcionário ---\n");
+  printf("Nome: %s | Idade: %d | Sexo: %c\n", nome, idade, sexo);
+  printf("Endereço: %s, %s - %s\n", endereço, cidade, estado);
+  printf("Salário Liquido: R$ %.2F\n", liquido);
+}
+
+  return 0;
+}
+
