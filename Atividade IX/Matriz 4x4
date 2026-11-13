@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4];
+    int lin, col;
+    int contadorPares = 0;
+    
+    
+    for (lin = 0; lin <4; lin++){
+    for (col = 0; col < 4; col++){
+        scanf("%d", &matriz[lin][col]);
+       
+       if (matriz[lin][col] % 2 ==0){
+           contadorPares++;
+       }
+    }
+    }
+    printf("Quantidade de números pares: %d\n", contadorPares);
+    
+    return 0;
+}
