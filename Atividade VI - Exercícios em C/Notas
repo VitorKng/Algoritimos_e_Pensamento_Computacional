@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int qtdAlunos=0;
+    int aprovado=0;
+    int recuperacao=0;
+    int reprovado=0;
+    float nota, media;
+    float soma=0;
+    
+    printf("Digite a nota do aluno de 0 a 10 (digite -1 para terminar): \n\n");
+    scanf("%f", &nota);
+    
+    while (nota != -1){
+        
+        if (nota >=0 && nota <=10){
+            qtdAlunos++;
+            soma = nota + soma;
+            
+            if(nota >=7){
+                    printf("Aluno aprovado!\n");
+                    aprovado++;
+                } else if(nota >=5){
+                    printf("Aluno de recuperação!\n");
+                    recuperacao++;
+                } else {
+                    printf("Aluno reprovado!\n");
+                    reprovado++;
+                }
+        } else printf("\nNota invalida! Informe uma nota entre 0 e 10:");
+        
+        printf("\nDigite a nota do aluno (-1 para finalizar):\n");
+        scanf("%f", &nota);
+    }
+    
+    media = soma/qtdAlunos;
+    
+    if (qtdAlunos>0){
+        printf("\n*******Resultado*******\n\n");
+        printf("Alunos aprovados........: %d\n", aprovado);
+        printf("Alunos em recuperação...: %d\n", recuperacao);
+        printf("Alunos reprovados.......: %d\n", reprovado);
+        printf("Média geral.......: %.2f\n", media);    
+    } else printf("Nenhuma nota válida foi informada!!!");
+    
+    return 0;
+}
