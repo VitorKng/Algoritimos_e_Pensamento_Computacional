@@ -1,0 +1,49 @@
+4-
+#include <stdio.h>
+
+  float calcularDesconto(float valorCompra) {
+  float percentualDesconto = 0.0;
+
+  if (valorCompra >= 500.0) {
+    percentualDesconto = 0.10;
+  } else if (valorCompra >= 100.0) {
+    percentualDesconto = 0.05;
+  } else {
+    percentualDesconto = 0.0;
+  }
+
+  return valorCompra * percentualDesconto;
+}
+
+  float calcularValorFinal(float valorCompra, float valorDesconto) {
+  return valorCompra - valorDesconto;
+}
+
+  int main() {
+  float valorCompra, desconto, valorFinal;
+
+  printf("======================================\n");
+  printf("   SISTEMA DE CALCULO DE DESCONTO  \n");
+  printf("======================================\n");
+
+  printf("Digite o valor da compra: R$ ");
+  scanf("%f", &valorCompra);
+
+  if (valorCompra < 0) {
+    printf("\n--------------------------------------\n");
+    printf("Erro: O valor da compra nao pode ser negativo!\n");
+    return 1;
+  }
+
+  desconto = calcularDesconto(valorCompra);
+  valorFinal = calcularValorFinal(valorCompra, desconto);
+
+  printf("\n--------------------------------------\n");
+  printf("      RESUMO DA COMPRA      \n");
+  printf("--------------------------------------\n");
+  printf("Valor original: R$ %.2f\n", valorCompra);
+  printf("Desconto aplicado: R$ %.2f\n", desconto);
+  printf("Valor final a pagar: R$ %.2f\n", valorFinal);
+
+  return 0;
+}
