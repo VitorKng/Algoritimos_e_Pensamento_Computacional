@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int calcularTotal(int v[], int n) {
+  int t = 0;
+  for (int i = 0; i < n; i++) t += v[i];
+  return t;
+}
+
+int contarViagens(int v[], int n, int lim) {
+  int c = 0;
+  for (int i = 0; i < n; i++) if (v[i] > lim) c++;
+  return c;
+}
+
+int main() {
+  int p[6], maior = 0, pos = 1;
+
+  for (int i = 0; i < 6; i++) {
+    printf("Viagem %d: ", i + 1);
+    scanf("%d", &p[i]);
+    if (i == 0 || p[i] > maior) { maior = p[i]; pos = i + 1; }
+  }
+
+  printf("\nTotal: %d\n", calcularTotal(p, 6));
+  printf("Maior: Viagem %d (%d)\n", pos, maior);
+  printf("Acima de 30: %d\n", contarViagens(p, 6, 30));
+}
