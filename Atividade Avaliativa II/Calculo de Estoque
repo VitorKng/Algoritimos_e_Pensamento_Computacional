@@ -1,0 +1,96 @@
+#include <stdio.h>
+
+int calcularTotalEstoque(int v[], int n) {
+    int soma = 0;
+    for (int i = 0; i < n; i++) soma += v[i];
+    return soma;
+}
+
+int contarZerados(int v[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) if (v[i] == 0) contador++;
+    return contador;
+}
+
+void movimentarEstoque(int v[], int n, int tipo) {
+    int produto, quantidade;
+    printf("Informe o numero do produto (1 a %d): ", n);
+    scanf("%d", &produto);
+
+    if (produto < 1 || produto > n) {
+        printf("Erro: Produto inexistente!\n");
+        return;
+    }
+
+    printf("Informe a quantidade: ");
+    scanf("%d", &quantidade);
+
+    if (quantidade <= 0) {
+        printf("Erro: A quantidade deve ser maior que zero!\n");
+        return;
+    }
+
+    int indice = produto - 1;
+    if (tipo == 1) {
+        v[indice] += quantidade;
+        printf("  [OK] Entrada registrada! Novo estoque do produto %d: %d\n", produto, v[indice]);
+    } else {
+        if (quantidade <= v[indice]) {
+            v[indice] -= quantidade;
+            printf("Saida registrada! Novo estoque do produto %d: %d\n", produto, v[indice]);
+        } else {
+            printf("Erro: Estoque insuficiente! Disponivel: %d\n", v[indice]);
+        }
+    }
+}
+
+int main() {
+    int estoque[10], opcao;
+
+    printf("=== CADASTRO INICIAL DE ESTOQUE (10 PRODUTOS) ===\n\n");
+    for (int i = 0; i < 10; i++) {
+        do {
+            printf("Quantidade inicial do produto %2d: ", i + 1);
+            scanf("%d", &estoque[i]);
+            if (estoque[i] < 0) {
+                printf("  [!] A quantidade nao pode ser negativa.\n");
+            }
+        } while (estoque[i] < 0);
+    }
+
+    do {
+        printf("\n================ MENU DE ESTOQUE ================\n\n");
+        printf(" [1] Consultar Estoque\n");
+        printf(" [2] Registrar Entrada\n");
+        printf(" [3] Registrar Saida\n");
+        printf(" [4] Encerrar Programa\n");
+        printf("=================================================\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("\n--- STATUS ATUAL DO ESTOQUE ---\n\n");
+                for (int i = 0; i < 10; i++) {
+                    printf("Produto %2d: %3d unidades\n", i + 1, estoque[i]);
+                }
+                printf("-------------------------------\n");
+                printf("Total de unidades em estoque: %d\n", calcularTotalEstoque(estoque, 10));
+                printf("Produtos sem estoque (zerados): %d\n", contarZerados(estoque, 10));
+                break;
+            case 2:
+                movimentarEstoque(estoque, 10, 1);
+                break;
+            case 3:
+                movimentarEstoque(estoque, 10, 2);
+                break;
+            case 4:
+                printf("\nEncerrando o sistema de estoque. Ate logo!\n");
+                break;
+            default:
+                printf("\n Opcao invalida! Escolha uma opcao de 1 a 4.\n");
+        }
+    } while (opcao != 4);
+
+    return 0;
+}
