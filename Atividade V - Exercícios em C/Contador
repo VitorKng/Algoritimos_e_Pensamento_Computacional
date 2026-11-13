@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+  int contador = 1;
+  int soma = 0;
+  printf("Soma dos numeros pares do intervalo de 1 a 20\n\n");
+
+//Laço de repetição de 1 a 20
+
+  do{
+    //Verificando se o número e par realizando a soma 
+
+    if (contador % 2 == 0)
+    {
+      soma = soma + contador;
+    }
+
+    //Incrementando o contador 
+
+    contador++;
+     
+  }while (contador <=20);
+   
+  printf("\nA soma dos pares: %d", soma);
+   
+  return 0;
+}
