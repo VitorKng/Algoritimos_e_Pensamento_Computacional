@@ -1,0 +1,18 @@
+1_
+#include <stdio.h>
+
+int main(){
+  int num, dobro, triplo;
+   
+  printf("Digite um número: ");
+  scanf("%d", &num);
+   
+  if(num %2==0){
+    dobro = num * 2;
+    printf("Número par e o seu dobro é %d: ", dobro);
+  } else {
+    triplo = num * 3;
+    printf("Número impar e o seu triplo é %d: ", triplo);
+  }
+  return 0;
+}
