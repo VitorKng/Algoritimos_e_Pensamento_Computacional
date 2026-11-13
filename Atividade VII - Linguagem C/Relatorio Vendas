@@ -1,0 +1,49 @@
+2-
+#include <stdio.h>
+
+int main() {
+  float vendas[7];
+  float totalVendas = 0.0, mediaDiaria = 0.0;
+  float maiorVenda;
+  int diaMaiorVenda = 0;
+  int acimaDeMil = 0;
+  int i;
+
+  printf("======================================\n");
+  printf("   CONTROLE DE VENDAS DA SEMANA   \n");
+  printf("======================================\n");
+
+  for (i = 0; i < 7; i++) {
+    printf("Digite o valor das vendas do dia %d: R$ ", i + 1);
+    scanf("%f", &vendas[i]);
+  }
+
+  maiorVenda = vendas[0];
+  diaMaiorVenda = 1;
+
+  for (i = 0; i < 7; i++) {
+    totalVendas += vendas[i];
+
+    if (vendas[i] > maiorVenda) {
+      maiorVenda = vendas[i];
+      diaMaiorVenda = i + 1;
+    }
+
+    if (vendas[i] > 999) {
+      acimaDeMil++;
+    }
+  }
+
+  mediaDiaria = totalVendas / 7.0;
+
+  printf("\n--------------------------------------\n");
+  printf("     RELATORIO DE VENDAS     \n");
+  printf("--------------------------------------\n");
+  printf("Total vendido na semana: R$ %.2f\n", totalVendas);
+  printf("Media diaria de vendas: R$ %.2f\n", mediaDiaria);
+  printf("Dia com maior venda: Dia %d (R$ %.2f)\n", diaMaiorVenda, maiorVenda);
+  printf("Dias com vendas superiores a R$ 1.000,00: %d\n", acimaDeMil);
+  printf("======================================\n");
+
+  return 0;
+}
