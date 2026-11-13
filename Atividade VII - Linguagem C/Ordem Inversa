@@ -1,0 +1,25 @@
+3-
+#include <stdio.h>
+
+int main() {
+  int numeros[6];
+  int i;
+
+  printf("======================================\n");
+  printf("   EXIBICAO EM ORDEM INVERSA    \n");
+  printf("======================================\n");
+
+  for (i = 0; i < 6; i++) {
+    printf("Digite o %dº numero inteiro: ", i + 1);
+    scanf("%d", &numeros[i]);
+  }
+
+  printf("\n--------------------------------------\n");
+  printf("Valores na ordem inversa:\n");
+   
+  for (i = 5; i >= 0; i--) {
+    printf("Elemento[%d] = %d\n", i + 1, numeros[i]);
+  }
+   
+  return 0;
+}
