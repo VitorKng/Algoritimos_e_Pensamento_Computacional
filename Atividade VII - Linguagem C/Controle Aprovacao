@@ -1,0 +1,62 @@
+5-
+#include <stdio.h>
+
+float calcularMedia(float num1, float num2, float num3) {
+  return (num1 + num2 + num3) / 3.0;
+}
+
+int verificarSituacao(float media) {
+  if (media >= 7.0) {
+    return 1;
+  } else if (media >= 5.0) {
+    return 2;
+  } else {
+    return 3;
+  }
+}
+
+int main() {
+  float nota1, nota2, nota3, media;
+  int situacao;
+
+  printf("  CONTROLE DE APROVACAO DE ALUNOS  \n");
+  printf("======================================\n");
+
+  printf("Digite a primeira nota: ");
+  scanf("%f", &nota1);
+  printf("Digite a segunda nota: ");
+  scanf("%f", &nota2);
+  printf("Digite a terceira nota: ");
+  scanf("%f", &nota3);
+  if (nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10) {
+    printf("\n--------------------------------------\n");
+    printf("Aviso: Notas fora do padrao (0.0 a 10.0).\n");
+    printf("--------------------------------------\n");
+  }
+
+  media = calcularMedia(nota1, nota2, nota3);
+  situacao = verificarSituacao(media);
+
+  printf("\n--------------------------------------\n");
+  printf("     RESULTADO FINAL       \n");
+  printf("--------------------------------------\n");
+  printf("Media final: %.2f\n", media);
+  printf("Situacao: ");
+
+  switch (situacao) {
+    case 1:
+      printf("Aprovado\n");
+      break;
+    case 2:
+      printf("Recuperacao\n");
+      break;
+    case 3:
+      printf("Reprovado\n");
+      break;
+    default:
+      printf("Situacao desconhecida\n");
+      break;
+  }
+
+  return 0;
+}
