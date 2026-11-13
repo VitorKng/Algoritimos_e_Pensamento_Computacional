@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+  float consumo[7], total = 0, maior;
+  int dia_maior = 0, acima_250 = 0;
+
+  for (int i = 0; i < 7; i++) {
+    printf("Consumo do dia %d (kWh): ", i + 1);
+    scanf("%f", &consumo[i]);
+
+    total += consumo[i];
+     
+    if (consumo[i] > 250) {
+      acima_250++;
+    }
+     
+    if (i == 0 || consumo[i] > maior) {
+      maior = consumo[i];
+      dia_maior = i + 1;
+    }
+  }
+
+  printf("\n--- Resultados ---\n\n");
+  printf("Total: %.2f kWh\n", total);
+  printf("Media: %.2f kWh\n", total / 7);
+  printf("Maior consumo: Dia %d (%.2f kWh)\n", dia_maior, maior);
+  printf("Dias acima de 250 kWh: %d\n", acima_250);
+
+  return 0;
+}
