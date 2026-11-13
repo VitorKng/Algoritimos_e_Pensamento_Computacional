@@ -1,0 +1,31 @@
+#include <stdio.h>
+#define TAXA_SERVICO 0.10
+
+int main(){
+  float valorConsumo, valorTaxa, valorTotalConta, valorPessoa;
+  int qtdPessoas;
+   
+  printf("******* RESTAURANTE *******\n\n");
+
+//entrada
+  printf("Informe o valor total do consumo R$: ");
+  scanf("%f", &valorConsumo);
+  printf("Informe a quantidade de pessoas na mesa: ");
+  scanf("%d", &qtdPessoas);
+
+//processamento
+  valorTaxa = valorConsumo * TAXA_SERVICO;
+  valorTotalConta = valorConsumo + valorTaxa;
+  valorPessoa = valorTotalConta / qtdPessoas;
+
+//saida
+  printf("********** CONTA **********\n");
+  printf("Valor do consumo..........: R$ %.2f\n", valorConsumo);
+  printf("Valor do serviço..........: R$ %.2f\n", valorTaxa);
+  printf("....................................\n");
+  printf("Valor total da conta..........: R$ %.2f\n",valorTotalConta);
+  printf("Valor por pessoa ..........: R$ %.2f\n", valorPessoa);
+   
+
+  return 0;
+}
