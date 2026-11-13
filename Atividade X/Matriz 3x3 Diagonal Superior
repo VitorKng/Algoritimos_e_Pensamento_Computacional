@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3];
+
+    for (int lin = 0; lin < 3; lin++) {
+        for (int col = 0; col < 3; col++) {
+            scanf("%d", &matriz[lin][col]);
+        }
+    }
+
+    printf("Saída dos elementos da diagonal superior:\n");
+    for (int lin = 0; lin < 3; lin++) {
+        for (int col = 0; col < 3; col++) {
+            if (col >= lin) {
+                printf("%d ", matriz[lin][col]);
+            } else {
+                printf("   ");
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
