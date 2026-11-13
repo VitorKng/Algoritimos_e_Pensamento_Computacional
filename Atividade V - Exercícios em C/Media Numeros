@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+  int numero;
+  int soma = 0;
+  int quantidade = 0;
+  float media;
+
+  printf("Digite um numero (0 para terminar): ");
+  scanf("%d", &numero);
+
+  while (numero != 0) {
+
+    if (numero % 2 != 0) {
+      soma += numero;
+      quantidade++;
+    }
+
+    printf("Digite um numero (0 para terminar): ");
+    scanf("%d", &numero);
+  }
+
+  if (quantidade > 0) {
+    media = (float)soma / quantidade;
+    printf("Media dos numeros impares: %.2f\n", media);
+  } else {
+    printf("Nenhum numero impar foi digitado.\n");
+  }
+
+  return 0;
+}
