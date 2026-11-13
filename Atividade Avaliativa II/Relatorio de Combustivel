@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+float calcularTotal(float v[], int n) {
+    float soma = 0;
+    for (int i = 0; i < n; i++) soma += v[i];
+    return soma;
+}
+
+float calcularMedia(float total, int n) {
+    return total / n;
+}
+
+int contarViagens(float v[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) {
+        if (v[i] > 50) contador++;
+    }
+    return contador;
+}
+
+int main() {
+    float consumo[10];
+    int indiceMaior = 0;
+
+    printf("=== CONTROLE DE COMBUSTIVEL - 10 VIAGENS ===\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Viagem %2d (L): ", i + 1);
+        scanf("%f", &consumo[i]);
+        if (consumo[i] > consumo[indiceMaior]) indiceMaior = i;
+    }
+
+    float total = calcularTotal(consumo, 10);
+    float media = calcularMedia(total, 10);
+
+    printf("\n================ RELATORIO ================\n");
+    printf("Consumo total: %.2f L\n", total);
+    printf("Consumo medio: %.2f L\n", media);
+    printf("Maior consumo: Viagem %d (%.2f L)\n", indiceMaior + 1, consumo[indiceMaior]);
+    printf("Viagens acima de 50L: %d\n", contarViagens(consumo, 10));
+    
+    printf("-------------------------------------------\n");
+    printf("Consumos na ordem inversa: ");
+    for (int i = 9; i >= 0; i--) {
+        printf("%.1f ", consumo[i]);
+    }
+    printf("\n===========================================\n");
+
+    return 0;
+}
