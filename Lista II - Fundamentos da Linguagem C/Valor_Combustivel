@@ -1,0 +1,30 @@
+5º
+#include <stdio.h>
+
+int main() {
+  char combustivel;
+  float litros, preco, desconto, total;
+
+  scanf("%f", &litros);
+  scanf(" %c", &combustivel);
+
+  if (combustivel == 'A' || combustivel == 'a') {
+    preco = 1.90;
+
+    if (litros <= 20)
+      desconto = 0.03;
+    else
+      desconto = 0.05;
+  }
+  else if (combustivel == 'G' || combustivel == 'g') {
+    preco = 2.50;
+
+    if (litros <= 20)
+      desconto = 0.04;
+    else
+      desconto = 0.06;
+  }
+  total = litros * preco * (1 - desconto);
+  printf("Valor a pagar: R$ %.2f\n", total);
+  return 0;
+}
