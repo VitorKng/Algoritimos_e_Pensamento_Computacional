@@ -1,0 +1,52 @@
+6-
+#include <stdio.h>
+
+int main() {
+  int numeros[10];
+  int x, y, z;
+  int encontrouRepetido = 0;
+
+  printf("  IDENTIFICACAO DE NUMEROS REPETIDOS \n");
+  printf("======================================\n");
+
+  for (i = 0; i < 10; x++) {
+    printf("Digite o %dº numero inteiro: ", x + 1);
+    scanf("%d", &numeros[i]);
+  }
+
+  printf("\n--------------------------------------\n");
+  printf("Numeros repetidos encontrados:\n");
+
+  for (x = 0; x < 10; x++) {
+    int jaFoiProcessado = 0;
+    for (z = 0; z < x; z++) {
+      if (numeros[x] == numeros[z]) {
+        jaFoiProcessado = 1;
+        break;
+      }
+    }
+
+    if (jaFoiProcessado) {
+      continue;
+    }
+
+    int temDuplicata = 0;
+    for (y = x + 1; y < 10; y++) {
+      if (numeros[x] == numeros[y]) {
+        temDuplicata = 1;
+        break;
+      }
+    }
+
+    if (temDuplicata) {
+      printf("- Numero %d\n", numeros[x]);
+      encontrouRepetido = 1;
+    }
+  }
+
+  if (!encontrouRepetido) {
+    printf("Nenhum numero repetido foi encontrado.\n");
+  }
+
+  return 0;
+}
