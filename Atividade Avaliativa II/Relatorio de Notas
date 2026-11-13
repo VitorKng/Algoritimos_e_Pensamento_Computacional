@@ -1,0 +1,106 @@
+#include <stdio.h>
+
+float calcularMedia(int vetorNotas[], int tamanho) {
+    int somaNotas = 0;
+    for (int indice = 0; indice < tamanho; indice++) {
+        somaNotas += vetorNotas[indice];
+    }
+    return (float)somaNotas / tamanho;
+}
+
+int contarAprovados(int vetorNotas[], int tamanho) {
+    int contadorAprovados = 0;
+    for (int indice = 0; indice < tamanho; indice++) {
+        if (vetorNotas[indice] >= 7) {
+            contadorAprovados++;
+        }
+    }
+    return contadorAprovados;
+}
+
+int encontrarMaiorNota(int vetorNotas[], int tamanho) {
+    int maiorNota = vetorNotas[0];
+    for (int indice = 1; indice < tamanho; indice++) {
+        if (vetorNotas[indice] > maiorNota) {
+            maiorNota = vetorNotas[indice];
+        }
+    }
+    return maiorNota;
+}
+
+int encontrarMenorNota(int vetorNotas[], int tamanho) {
+    int menorNota = vetorNotas[0];
+    for (int indice = 1; indice < tamanho; indice++) {
+        if (vetorNotas[indice] < menorNota) {
+            menorNota = vetorNotas[indice];
+        }
+    }
+    return menorNota;
+}
+
+int contarAcimaMedia(int vetorNotas[], float mediaTurma, int tamanho) {
+    int contadorAcima = 0;
+    for (int indice = 0; indice < tamanho; indice++) {
+        if (vetorNotas[indice] > mediaTurma) {
+            contadorAcima++;
+        }
+    }
+    return contadorAcima;
+}
+#include <stdio.h>
+
+float calcularMedia(int v[], int n) {
+    int soma = 0;
+    for (int i = 0; i < n; i++) soma += v[i];
+    return (float)soma / n;
+}
+
+int contarAprovados(int v[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) if (v[i] >= 7) contador++;
+    return contador;
+}
+
+int encontrarMaior(int v[], int n) {
+    int maior = v[0];
+    for (int i = 1; i < n; i++) if (v[i] > maior) maior = v[i];
+    return maior;
+}
+
+int contarAcimaMedia(int v[], float media, int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) if (v[i] > media) contador++;
+    return contador;
+}
+
+int main() {
+    int notas[12], menorNota;
+
+    printf("=== CONTROLE DE NOTAS DA TURMA (12 ALUNOS) ===\n\n");
+    for (int i = 0; i < 12; i++) {
+        do {
+            printf("Nota do aluno %2d (0 a 10): ", i + 1);
+            scanf("%d", &notas[i]);
+            if (notas[i] < 0 || notas[i] > 10) {
+                printf("  [!] Nota invalida! Digite novamente entre 0 e 10.\n");
+            }
+        } while (notas[i] < 0 || notas[i] > 10);
+    }
+
+    float mediaTurma = calcularMedia(notas, 12);
+    menorNota = notas[0];
+    for (int i = 1; i < 12; i++) if (notas[i] < menorNota) menorNota = notas[i];
+
+    printf("\n======== RELATORIO DA TURMA ========\n\n");
+    printf("Notas cadastradas: ");
+    for (int i = 0; i < 12; i++) printf("%d ", notas[i]);
+    
+    printf("\n----------------------------------------------------\n");
+    printf("Media da turma: %.2f\n", mediaTurma);
+    printf("Alunos aprovados (>= 7): %d\n", contarAprovados(notas, 12));
+    printf("Maior nota: %d | Menor nota: %d\n", encontrarMaior(notas, 12), menorNota);
+    printf("Alunos acima da media: %d\n", contarAcimaMedia(notas, mediaTurma, 12));
+    printf("====================================================\n");
+
+    return 0;
+}
